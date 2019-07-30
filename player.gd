@@ -6,13 +6,14 @@ var SPEED = 1
 var GRAV = 0.2
 var MAX_GRAV = 0.8
 
-
 func _physics_process(delta):
 	cooldown(delta)
 	if Input.is_action_pressed("game_right"):
 		move_vec.x = SPEED
+		sprite.flip_h = false
 	elif Input.is_action_pressed("game_left"):
 		move_vec.x = -SPEED
+		sprite.flip_h = true
 	elif move_vec.x != 0:
 		move_vec.x -= move_vec.normalized().x * ACCEL
 		if abs(move_vec.x) < (ACCEL):
