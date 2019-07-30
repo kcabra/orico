@@ -1,24 +1,29 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://player.png" type="Texture" id=2]
+[ext_resource path="res://baiacu.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends KinematicBody2D
+
+"
 
 [sub_resource type="CircleShape2D" id=1]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 25.0059
+[sub_resource type="CircleShape2D" id=4]
+radius = 150.0
 
 [node name="player" type="KinematicBody2D"]
-script = ExtResource( 1 )
+script = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
