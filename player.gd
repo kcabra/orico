@@ -50,12 +50,16 @@ func cooldown(delta):
 #<<<<<<< master
 
 onready var sprite = $Sprite
-onready var hitbox = $Area2D
+onready var hitbox = $ScareZone
+onready var killzone = $KillZone
 func _process(_delta):
 	if Input.is_action_just_pressed("game_attack"):
 		for node in hitbox.get_overlapping_bodies():
 			if node.is_in_group("enemy"):
-				node.scare()
+				if killzone.overlaps_body(node):
+					node.kill()
+				else:
+					node.scare()
 		sprite.frame = 1
 		yield(get_tree().create_timer(0.6), "timeout")
 		sprite.frame = 0
