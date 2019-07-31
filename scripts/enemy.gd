@@ -34,6 +34,8 @@ func _physics_process(delta):
 	var collision = move_and_collide(move_vec * delta)
 	if collision and collision.collider.is_in_group("player"):
 		collision.collider.hit(collision.normal)
+	elif collision:
+		move_and_collide(move_vec.slide(collision.normal) * delta)
 		
 	
 	sprite.flip_h = true if player_vec.x > 0 else false
@@ -55,6 +57,6 @@ func kill():
 	timer.connect("timeout", self, "queue_free")
 	timer.wait_time = 2
 	timer.start()
-	self.collision_mask = 0
+	set_collision_mask_bit(0, false)
 	state = states.kill
 	sprite.flip_h = !sprite.flip_h

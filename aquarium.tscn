@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ui.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=3]
 
 [node name="aquarium" type="Node2D"]
 
@@ -22,6 +22,7 @@ position = Vector2( 317.076, 239.87 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 editor/display_folded = true
+collision_mask = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 color = Color( 0.933333, 0.619608, 0.25098, 1 )
@@ -40,17 +41,16 @@ polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 4
 [node name="UI" type="Control" parent="." groups=[
 "ui",
 ]]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
-margin_left = 10.0
-margin_top = 10.0
+margin_left = 7.0
+margin_top = 7.0
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
-margin_right = 30.0
-margin_bottom = 30.0
+margin_right = 33.0
+margin_bottom = 33.0

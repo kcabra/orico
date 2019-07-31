@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baiacu.png-7968868eb2cf5e05de535acaef3dce8c.stex"
+path="res://.import/piranha.png-f34daaeeba08edceef50df322f4677e1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://baiacu.png"
-dest_files=[ "res://.import/baiacu.png-7968868eb2cf5e05de535acaef3dce8c.stex" ]
+source_file="res://assets/piranha.png"
+dest_files=[ "res://.import/piranha.png-f34daaeeba08edceef50df322f4677e1.stex" ]
 
 [params]
 

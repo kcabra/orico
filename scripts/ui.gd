@@ -6,7 +6,7 @@ onready var player = get_tree().get_nodes_in_group("player")[0]
 var active_hearts = Array()
 
 func _ready():
-	var heart_sprite = load("res://heart.png")
+	var heart_sprite = load("res://assets/heart.png")
 	for i in range(player.HP):
 		var heart = TextureRect.new()
 		heart.texture = heart_sprite
@@ -15,4 +15,5 @@ func _ready():
 
 func hit():
 	var heart = active_hearts.pop_back()
-	heart.queue_free()
+	if heart:
+		heart.queue_free()

@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="ourico"
 run/main_scene="res://aquarium.tscn"
-config/icon="res://player.png"
+config/icon="res://assets/player.png"
 
 [display]
 

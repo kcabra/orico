@@ -1,14 +1,19 @@
 extends KinematicBody2D
 
+onready var sprite = $Sprite
+onready var hitbox = $ScareZone
+onready var killzone = $KillZone
+
 var HP = 5
 
-var move_vec:= Vector2()
 var ACCEL = 0.1
 var SPEED = 1
 var GRAV = 0.2
 var MAX_GRAV = 0.8
 
+var move_vec:= Vector2()
 func _physics_process(delta):
+	#<movement logic>
 	if not being_hit:
 		if Input.is_action_pressed("game_right"):
 			move_vec.x = SPEED
@@ -20,20 +25,25 @@ func _physics_process(delta):
 			move_vec.x -= move_vec.normalized().x * ACCEL
 			if abs(move_vec.x) < (ACCEL):
 				move_vec.x = 0
-	
+		
 		if Input.is_action_pressed("game_jump"):
-			move_vec.y = -1.2
-		elif move_vec.y < MAX_GRAV:
-			move_vec.y += GRAV
-
-	move_and_collide(move_vec)
-
-onready var sprite = $Sprite
-onready var hitbox = $ScareZone
-onready var killzone = $KillZone
-func _process(_delta):
+			move_vec.y = -1.4
+	
+	if move_vec.y < MAX_GRAV:
+		move_vec.y += GRAV
+	#</movement logic>
+	
+	#<attack logic>
 	if Input.is_action_just_pressed("game_attack"):
 		scare()
+	#</attack logic>
+	
+	#<actual movement>
+	var collision = move_and_collide(move_vec)
+	#</actual movement>
+	#<collision logic>
+	if collision:
+		move_and_collide(move_vec.slide(collision.normal))
 
 func scare(kill=true):
 	for node in hitbox.get_overlapping_bodies():
@@ -57,7 +67,7 @@ func hit(normal):
 		scare(false)
 		HP -= 1
 		get_tree().call_group("ui", "hit")
-		for i in range(3):
+		for _i in range(3):
 			modulate = Color(5, 0, 0) # red
 			yield(get_tree().create_timer(0.1), "timeout")
 			modulate = Color.white
