@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var player = $"../player"
+onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var sprite = $Sprite
 onready var timer = $Timer
 

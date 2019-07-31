@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/ui.gd" type="Script" id=3]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=4]
 
 [node name="aquarium" type="Node2D"]
 
@@ -11,46 +12,57 @@
 ] instance=ExtResource( 1 )]
 position = Vector2( 104.482, 160.18 )
 
-[node name="enemy" parent="." instance=ExtResource( 2 )]
+[node name="enemies" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy" parent="enemies" instance=ExtResource( 2 )]
 position = Vector2( 282.076, 76.3064 )
 
-[node name="enemy2" parent="." instance=ExtResource( 2 )]
+[node name="enemy2" parent="enemies" instance=ExtResource( 2 )]
 position = Vector2( 342.339, 156.713 )
 
-[node name="enemy3" parent="." instance=ExtResource( 2 )]
+[node name="enemy3" parent="enemies" instance=ExtResource( 2 )]
 position = Vector2( 317.076, 239.87 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ground" type="StaticBody2D" parent="."]
 editor/display_folded = true
 collision_mask = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="ground"]
 color = Color( 0.933333, 0.619608, 0.25098, 1 )
 polygon = PoolVector2Array( 0, 95, 27, 95, 38, 204, 84, 239, 199, 229, 276, 266, 338, 281, 390, 267, 468, 246, 508, 198, 527, 159, 545, 236, 567, 270, 600, 276, 638, 259, 638, 300, 0, 300 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground"]
 polygon = PoolVector2Array( 0, 95, 27, 95, 38, 204, 84, 239, 199, 229, 276, 266, 338, 281, 390, 267, 468, 246, 508, 198, 527, 159, 545, 236, 567, 270, 600, 276, 638, 259, 638, 300, 0, 300 )
 
-[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D2" type="Polygon2D" parent="ground"]
 color = Color( 0.933333, 0.619608, 0.25098, 1 )
 polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 404, 130, 445, 71, 508, 52, 598, 53, 660, 85, 660, 1, 0, 0 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ground"]
 polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 404, 130, 445, 71, 508, 52, 598, 53, 660, 85, 660, 1, 0, 0 )
 
-[node name="UI" type="Control" parent="." groups=[
+[node name="ui" type="Control" parent="." groups=[
 "ui",
 ]]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 3 )
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="ui"]
+editor/display_folded = true
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer"]
 margin_right = 33.0
 margin_bottom = 33.0
+
+[node name="camera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+limit_left = 0
+script = ExtResource( 4 )

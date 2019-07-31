@@ -12,15 +12,16 @@ var GRAV = 0.2
 var MAX_GRAV = 0.8
 
 var move_vec:= Vector2()
+var facing_left: bool
 func _physics_process(delta):
 	#<movement logic>
 	if not being_hit:
 		if Input.is_action_pressed("game_right"):
 			move_vec.x = SPEED
-			sprite.flip_h = false
+			facing_left = false
 		elif Input.is_action_pressed("game_left"):
 			move_vec.x = -SPEED
-			sprite.flip_h = true
+			facing_left = true
 		elif move_vec.x != 0:
 			move_vec.x -= move_vec.normalized().x * ACCEL
 			if abs(move_vec.x) < (ACCEL):
@@ -31,6 +32,8 @@ func _physics_process(delta):
 	
 	if move_vec.y < MAX_GRAV:
 		move_vec.y += GRAV
+	
+	sprite.flip_h = facing_left
 	#</movement logic>
 	
 	#<attack logic>
@@ -40,10 +43,9 @@ func _physics_process(delta):
 	
 	#<actual movement>
 	var collision = move_and_collide(move_vec)
-	#</actual movement>
-	#<collision logic>
 	if collision:
 		move_and_collide(move_vec.slide(collision.normal))
+	#</actual movement>
 
 func scare(kill=true):
 	for node in hitbox.get_overlapping_bodies():

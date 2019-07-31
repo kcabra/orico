@@ -41,5 +41,3 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 rotation = 1.5708
 shape = SubResource( 3 )
-
-[node name="camera" type="Camera2D" parent="."]
