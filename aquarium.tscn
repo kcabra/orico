@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/ui.gd" type="Script" id=3]
-[ext_resource path="res://scripts/camera.gd" type="Script" id=4]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=3]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=4]
 
-[node name="aquarium" type="Node2D"]
+[node name="aquarium" type="Node"]
 
 [node name="player" parent="." groups=[
 "player",
@@ -42,27 +42,33 @@ polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 4
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ground"]
 polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 404, 130, 445, 71, 508, 52, 598, 53, 660, 85, 660, 1, 0, 0 )
 
-[node name="ui" type="Control" parent="." groups=[
+[node name="camera" type="Camera2D" parent="." groups=[
+"camera",
+]]
+anchor_mode = 0
+current = true
+limit_left = 0
+limit_smoothed = true
+smoothing_enabled = true
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" type="Control" parent="CanvasLayer" groups=[
 "ui",
 ]]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="ui"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ui"]
 editor/display_folded = true
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ui/MarginContainer"]
 margin_right = 33.0
 margin_bottom = 33.0
-
-[node name="camera" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-limit_left = 0
-script = ExtResource( 4 )

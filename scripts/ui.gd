@@ -2,6 +2,7 @@ extends Control
 
 onready var hbox = $"MarginContainer/HBoxContainer"
 onready var player = get_tree().get_nodes_in_group("player")[0]
+onready var vp = get_viewport()
 
 var active_hearts = Array()
 
