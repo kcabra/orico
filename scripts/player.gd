@@ -7,10 +7,10 @@ onready var cooldown = $Cooldown
 
 var HP = 3
 
-var ACCEL = 0.1
-var SPEED = 1
-var GRAV = 0.2
-var MAX_GRAV = 0.8
+var SPEED = 100
+var GRAV = 10
+var JUMP = 80
+var MAX_GRAV = 80
 
 var move_vec:= Vector2()
 var facing_left: bool
@@ -24,12 +24,10 @@ func _physics_process(delta):
 			move_vec.x = -SPEED
 			facing_left = true
 		elif move_vec.x != 0:
-			move_vec.x -= move_vec.normalized().x * ACCEL
-			if abs(move_vec.x) < (ACCEL):
-				move_vec.x = 0
+			move_vec.x = 0
 		
 		if Input.is_action_pressed("game_jump"):
-			move_vec.y = -1.4
+			move_vec.y = -JUMP
 	
 	if move_vec.y < MAX_GRAV:
 		move_vec.y += GRAV
@@ -43,7 +41,7 @@ func _physics_process(delta):
 	#</attack logic>
 	
 	#<actual movement>
-	var collision = move_and_collide(move_vec)
+	var collision = move_and_collide(move_vec * delta)
 	if collision:
 		move_and_collide(move_vec.slide(collision.normal))
 	#</actual movement>

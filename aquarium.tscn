@@ -17,13 +17,22 @@ position = Vector2( 104.482, 160.18 )
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="enemy" parent="enemies" instance=ExtResource( 2 )]
-position = Vector2( 282.076, 76.3064 )
+position = Vector2( 782, 176 )
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 2 )]
-position = Vector2( 342.339, 156.713 )
+position = Vector2( 1383, 170 )
 
 [node name="enemy3" parent="enemies" instance=ExtResource( 2 )]
-position = Vector2( 317.076, 239.87 )
+position = Vector2( 2033, 113 )
+
+[node name="enemy4" parent="enemies" instance=ExtResource( 2 )]
+position = Vector2( 2501, 90 )
+
+[node name="enemy5" parent="enemies" instance=ExtResource( 2 )]
+position = Vector2( 2572, 161 )
+
+[node name="enemy6" parent="enemies" instance=ExtResource( 2 )]
+position = Vector2( 2474, 178 )
 
 [node name="ground" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -35,11 +44,11 @@ polygon = PoolVector2Array( 0, 95, 27, 95, 38, 204, 84, 239, 199, 229, 276, 266,
 
 [node name="Polygon2D2" type="Polygon2D" parent="ground"]
 color = Color( 0.933333, 0.619608, 0.25098, 1 )
-polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 404, 130, 445, 71, 508, 52, 598, 53, 660, 85, 717, 57, 789, 30, 877, 61, 970, 97, 1154, 107, 1265, 110, 1388, 126, 1482, 159, 1525, 159, 1588, 136, 1678, 91, 1763, 77, 1877, 73, 2092, 68, 2164, 107, 2217, 184, 2281, 219, 2433, 207, 2547, 218, 2734, 195, 3000, 163, 3000, 0, 0, 0 )
+polygon = PoolVector2Array( 0, 95, 27, 95, 100, 31, 206, 25, 302, 46, 383, 85, 404, 130, 445, 71, 508, 52, 598, 53, 660, 85, 717, 57, 789, 30, 877, 61, 970, 97, 1154, 107, 1265, 110, 1388, 126, 1482, 159, 1525, 159, 1588, 136, 1678, 91, 1763, 77, 1877, 73, 2092, 68, 2164, 107, 2217, 184, 2288, 147, 2350, 72, 2417, 51, 2516, 57, 2652, 119, 2734, 195, 3000, 163, 3000, 0, 0, 0 )
 
 [node name="Polygon2D3" type="Polygon2D" parent="ground"]
 color = Color( 0.933333, 0.619608, 0.25098, 1 )
-polygon = PoolVector2Array( 638, 259, 724, 280, 841, 277, 969, 224, 1033, 209, 1148, 178, 1257, 175, 1359, 204, 1424, 230, 1458, 264, 1507, 270, 1631, 217, 1773, 170, 1882, 155, 2049, 147, 2126, 193, 2166, 260, 2252, 289, 2424, 283, 2554, 291, 2713, 286, 2998, 256, 2998, 301, 638, 300 )
+polygon = PoolVector2Array( 638, 259, 724, 280, 841, 277, 969, 224, 1033, 209, 1148, 178, 1257, 175, 1359, 204, 1424, 230, 1458, 264, 1507, 270, 1631, 217, 1773, 170, 1882, 155, 2049, 147, 2126, 193, 2166, 260, 2252, 289, 2355, 227, 2465, 212, 2617, 223, 2736, 257, 2998, 256, 2998, 301, 638, 300 )
 
 [node name="camera" type="Camera2D" parent="." groups=[
 "camera",
