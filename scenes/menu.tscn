@@ -1,0 +1,297 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/DTM-Sans.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/piranha.png" type="Texture" id=3]
+[ext_resource path="res://assets/baiacu.png" type="Texture" id=4]
+[ext_resource path="res://assets/heart-broken.png" type="Texture" id=5]
+[ext_resource path="res://assets/heart.png" type="Texture" id=6]
+[ext_resource path="res://assets/baiacu-feliz.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 53
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="menu" type="ColorRect" groups=[
+"menu",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -310, -70 )
+color = Color( 0.133333, 0.101961, 0.0745098, 1 )
+script = ExtResource( 1 )
+
+[node name="credits" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="play2" type="Label" parent="credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.5
+margin_top = -96.5
+margin_right = 110.5
+margin_bottom = -43.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "This game was made for
+weekly game jam 107"
+align = 1
+uppercase = true
+
+[node name="play3" type="Label" parent="credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -149.0
+margin_top = -16.5
+margin_right = 149.0
+margin_bottom = 36.5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "programming by KCABRA & JULIO
+\"art\" by KCABRA"
+align = 1
+
+[node name="play4" type="Label" parent="credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -149.0
+margin_top = 53.5
+margin_right = 149.0
+margin_bottom = 106.5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "this font is \"Determination\"
+by  Haley Wakamatsu"
+align = 1
+
+[node name="tutorial" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="play2" type="Label" parent="tutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -96.5
+margin_right = 153.0
+margin_bottom = -43.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "hold left mouse button to go up"
+align = 1
+
+[node name="play3" type="Label" parent="tutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.5
+margin_top = -26.5
+margin_right = 216.5
+margin_bottom = 26.5
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "press right mouse button to scare fish away"
+align = 1
+
+[node name="play4" type="Label" parent="tutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -149.0
+margin_top = 43.5
+margin_right = 149.0
+margin_bottom = 96.5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "use arrow keys or A/D to move"
+align = 1
+
+[node name="title" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="title_card" type="Label" parent="title"]
+margin_left = 116.0
+margin_top = 50.0
+margin_right = 284.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.443137, 0.14902, 1 )
+text = "baiacu"
+uppercase = true
+
+[node name="game" type="Label" parent="title"]
+margin_left = 249.0
+margin_top = 110.0
+margin_right = 332.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.752941, 0, 0, 1 )
+text = "the game"
+uppercase = true
+
+[node name="play" type="Label" parent="title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 158.0
+margin_top = 147.5
+margin_right = 202.0
+margin_bottom = 172.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "play"
+uppercase = true
+
+[node name="credits" type="Label" parent="title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 141.5
+margin_top = 177.5
+margin_right = 218.5
+margin_bottom = 202.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "credits"
+uppercase = true
+
+[node name="exit" type="Label" parent="title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 158.0
+margin_top = 207.5
+margin_right = 202.0
+margin_bottom = 232.5
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "exit"
+uppercase = true
+
+[node name="piranha" type="Sprite" parent="title"]
+position = Vector2( 313, 247 )
+scale = Vector2( 2.97648, 2.97648 )
+texture = ExtResource( 3 )
+
+[node name="baiacu" type="Sprite" parent="title"]
+position = Vector2( 73, 155 )
+scale = Vector2( 2.97648, 2.97648 )
+texture = ExtResource( 4 )
+hframes = 2
+frame = 1
+
+[node name="game_over" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="play2" type="Label" parent="game_over"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -96.5
+margin_right = 153.0
+margin_bottom = -43.5
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.67451, 0.196078, 0.196078, 1 )
+text = "YOU LOST!! :("
+align = 1
+
+[node name="piranha" type="Sprite" parent="game_over"]
+position = Vector2( 296, 201 )
+scale = Vector2( 5.67647, 5.67647 )
+texture = ExtResource( 3 )
+
+[node name="heart" type="Sprite" parent="game_over"]
+position = Vector2( 111, 202 )
+scale = Vector2( 6.17857, 6.17857 )
+texture = ExtResource( 5 )
+
+[node name="win" type="Control" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="play2" type="Label" parent="win"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -117.5
+margin_right = 153.0
+margin_bottom = -56.5
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.87451, 0.443137, 0.14902, 1 )
+text = "YOU WON!! <3"
+align = 1
+
+[node name="heart" type="Sprite" parent="win"]
+position = Vector2( 106, 255 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="heart2" type="Sprite" parent="win"]
+position = Vector2( 76, 143 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="heart4" type="Sprite" parent="win"]
+position = Vector2( 42, 204 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="heart5" type="Sprite" parent="win"]
+position = Vector2( 274, 153 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="heart3" type="Sprite" parent="win"]
+position = Vector2( 330, 200 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="piranha" type="Sprite" parent="win"]
+position = Vector2( 181, 188 )
+scale = Vector2( 3.7946, 3.7946 )
+texture = ExtResource( 7 )

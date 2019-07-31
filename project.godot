@@ -15,9 +15,15 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ourico"
-run/main_scene="res://aquarium.tscn"
+config/name="BAIACU"
+run/main_scene="res://scenes/menu.tscn"
+boot_splash/image="res://assets/player.png"
+boot_splash/fullsize=false
 config/icon="res://assets/player.png"
+
+[autoload]
+
+game="*res://scripts/game.gd"
 
 [display]
 
