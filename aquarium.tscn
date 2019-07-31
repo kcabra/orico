@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=3]
 [ext_resource path="res://scripts/ui.gd" type="Script" id=4]
+[ext_resource path="res://assets/recharge.png" type="Texture" id=5]
 
 [node name="aquarium" type="Node"]
 
@@ -57,9 +58,8 @@ script = ExtResource( 3 )
 [node name="ui" type="Control" parent="CanvasLayer" groups=[
 "ui",
 ]]
-editor/display_folded = true
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 4 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ui"]
@@ -72,3 +72,19 @@ margin_bottom = 40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ui/MarginContainer"]
 margin_right = 33.0
 margin_bottom = 33.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/ui"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -39.0
+margin_top = 7.0
+margin_right = -7.0
+margin_bottom = 39.0
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/ui/MarginContainer2"]
+margin_right = 32.0
+margin_bottom = 32.0
+step = 0.01
+value = 100.0
+texture_progress = ExtResource( 5 )
+fill_mode = 5

@@ -3,8 +3,9 @@ extends KinematicBody2D
 onready var sprite = $Sprite
 onready var hitbox = $ScareZone
 onready var killzone = $KillZone
+onready var cooldown = $Cooldown
 
-var HP = 5
+var HP = 3
 
 var ACCEL = 0.1
 var SPEED = 1
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	#</movement logic>
 	
 	#<attack logic>
-	if Input.is_action_just_pressed("game_attack"):
+	if Input.is_action_just_pressed("game_attack") and cooldown.time_left == 0:
 		scare()
 	#</attack logic>
 	
@@ -48,6 +49,8 @@ func _physics_process(delta):
 	#</actual movement>
 
 func scare(kill=true):
+	get_tree().call_group("ui", "attack")
+	cooldown.start()
 	for node in hitbox.get_overlapping_bodies():
 		if node.is_in_group("enemy"):
 			if kill:
