@@ -43,7 +43,7 @@ func _physics_process(delta):
 	#<actual movement>
 	var collision = move_and_collide(move_vec * delta)
 	if collision:
-		move_and_collide(move_vec.slide(collision.normal))
+		move_and_collide(move_vec.slide(collision.normal) * delta)
 	#</actual movement>
 
 func scare(kill=true):
@@ -69,6 +69,8 @@ func hit(normal):
 		move_vec = -normal * (SPEED)
 		scare(false)
 		HP -= 1
+		if HP == 0:
+			game.game_over()
 		get_tree().call_group("ui", "hit")
 		for _i in range(3):
 			modulate = Color(5, 0, 0) # red
